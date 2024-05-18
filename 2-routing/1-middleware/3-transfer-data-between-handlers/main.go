@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/kataras/iris/v12"
 )
 
@@ -27,5 +25,5 @@ func myMiddleware(ctx iris.Context) {
 
 func myHandler(ctx iris.Context) {
 	value := ctx.Values().GetString(key)
-	ctx.HTML(fmt.Sprintf("<h1>%s</h1>", value))
+	ctx.HTML("<h1>%s</h1>", value)
 }
