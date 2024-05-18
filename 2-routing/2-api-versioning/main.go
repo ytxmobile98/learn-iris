@@ -47,6 +47,9 @@ func main() {
 	// for the rest of the parties as well.
 	v1.OnErrorCode(iris.StatusNotFound, testError("v1"))
 
+	// Deprecate the v1 version
+	v1.Deprecated(versioning.DefaultDeprecationOptions)
+
 	// Register resources based on the version.
 	v1.Get("/", testHandler("v1"))
 	v1.Get("/render", testView)
