@@ -25,6 +25,10 @@ func main() {
 		"latest": "3.0.0",
 	}))
 
+	// Set a version based on request context.
+	// Use /api?version=x.x.x to access the versioned API.
+	api.Use(versioning.FromQuery("version", "1.0.0"))
+
 	// |----------------|
 	// | The fun begins |
 	// |----------------|
